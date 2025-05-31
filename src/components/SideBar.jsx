@@ -9,44 +9,44 @@ const SideBar = ({ selectedCategory, setselectedCategory }) => (
       overflowY: 'auto',
       height: { sx: 'auto', md: '95%' },
       flexDirection: { md: 'column' },
-      background: 'black', // Sidebar background color
+      background: 'black',
     }}
   >
     {categories.map((category) => (
       <button
-        key={category.name} // Add unique key for each category
+        key={category.name} 
         className="category-btn"
-        onClick={() => setselectedCategory(category.name)} // Corrected event handler
+        onClick={() => setselectedCategory(category.name)} 
         style={{
-          display: 'flex', // Align icon and text side by side
-          alignItems: 'center', // Vertically align icon and text
-          justifyContent: 'flex-start', // Align content to the left
-          background: category.name === selectedCategory ? '#1890F1' : 'transparent', // Active category background
-          color: '#FFF', // Text color
-          border: 'none', // Remove button border
+          display: 'flex',
+          alignItems: 'center', 
+          justifyContent: 'flex-start', 
+          background: category.name === selectedCategory ? '#1890F1' : 'transparent', 
+          color: '#FFF',
+          border: 'none',
           borderRadius: '30px',
-          outline: 'none', // Remove focus outline
-          cursor: 'pointer', // Pointer cursor on hover
-          padding: '10px 20px', // Adjust padding
-          width: '100%', // Full width of the sidebar
-          transition: 'background 0.3s', // Smooth hover effect
+          outline: 'none', 
+          cursor: 'pointer', 
+          padding: '10px 20px', 
+          width: '100%',
+          transition: 'background 0.3s', 
         }}
         onMouseOver={(e) => {
-          const button = e.currentTarget; // Ensure the hover applies to the entire button
+          const button = e.currentTarget; 
           if (category.name !== selectedCategory) {
-            button.style.background = '#333'; // Highlight on hover (not active)
+            button.style.background = '#333'; 
           }
         }}
         onMouseOut={(e) => {
-          const button = e.currentTarget; // Ensure hover-out affects the entire button
+          const button = e.currentTarget; 
           if (category.name !== selectedCategory) {
-            button.style.background = 'transparent'; // Remove highlight
+            button.style.background = 'transparent'; 
           }
         }}
       >
         <span
           style={{
-            color: category.name === selectedCategory ? 'white' : '#1890F1', // Icon color logic
+            color: category.name === selectedCategory ? 'white' : '#1890F1',
             marginRight: '15px',
             fontSize: '18px',
           }}
