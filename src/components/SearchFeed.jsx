@@ -9,14 +9,15 @@ const SearchFeed = () => {
     const { searchTerm } = useParams();
 
     useEffect(() => {
-        // Correct template literal for API request
+
         fetchfromAPI(`search?part=snippet&q=${searchTerm}`)
             .then((data) => setVideos(data.items))
-            .catch((error) => console.error('Error fetching data:', error)); // Handle potential errors
+            .catch((error) => console.error('Error fetching data:', error)); 
     }, [searchTerm]);
 
     return (
         <Box p={2} sx={{ overflowY: 'auto', height: '90vh', flex: 2 }}>
+            
         <Typography
             variant="h4"
             fontWeight="bold"
@@ -25,6 +26,7 @@ const SearchFeed = () => {
         >
             Results for:  <span style={{ color: '#1890F1' }}>{searchTerm}</span>
         </Typography>
+            
         <Box display="flex" p={2}>
         <Box sx={{mr: {sm: '120px', md: '120px'}}}/>
             <Videos videos={videos} />
